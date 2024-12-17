@@ -217,7 +217,8 @@ class CFGDenoiser(torch.nn.Module):
         
         if prompts is not None and "VTG-DGO" in prompts[0]:
             print(f"Loading embedding from {prompts[0]}")
-            text_embeddings_loaded = torch.load(f"/data/embeddings/{prompts[0]}/{prompts[0]}.pt") 
+            # text_embeddings_loaded = torch.load(f"/home/andy/Finetuned Embeddings/{prompts[0]}/{prompts[0]}.pt") 
+            text_embeddings_loaded = torch.load(f"/volume/data/embeddings/{prompts[0]}/{prompts[0]}.pt") 
             text_embeddings_loaded = text_embeddings_loaded[1].unsqueeze(0)
             tensor = text_embeddings_loaded.repeat(tensor.shape[0], 1, 1)
             
